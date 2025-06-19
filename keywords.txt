@@ -1,0 +1,61 @@
+# Clases
+TortuBot        KEYWORD1
+TortuBotWiFi    KEYWORD1
+TortuBotThingSpeak  KEYWORD1
+TortuBotHTTP    KEYWORD1
+TortuBotStorage KEYWORD1
+
+# Métodos globales y de hardware
+begin           KEYWORD2
+moveForward     KEYWORD2
+moveBackward    KEYWORD2
+turnLeft        KEYWORD2
+turnRight       KEYWORD2
+stop            KEYWORD2
+
+# Sensores y utilidades
+readLeftIR      KEYWORD2
+readCenterIR    KEYWORD2
+readRightIR     KEYWORD2
+readAllIR       KEYWORD2
+setLED          KEYWORD2
+beep            KEYWORD2
+blinkLED        KEYWORD2
+playTone        KEYWORD2
+readExt         KEYWORD2
+
+# Motores individuales
+setM1       KEYWORD2
+setM2       KEYWORD2
+stopM1      KEYWORD2
+stopM2      KEYWORD2
+
+# Encoders
+initEncoders    KEYWORD2
+readEncoder1    KEYWORD2
+readEncoder2    KEYWORD2
+resetEncoders   KEYWORD2
+
+# WiFi
+connect         KEYWORD2
+isConnected     KEYWORD2
+getIP           KEYWORD2
+autoReconnect   KEYWORD2
+setInterval     KEYWORD2
+onEvent         KEYWORD2
+
+# ThingSpeak
+config          KEYWORD2
+sendField       KEYWORD2
+sendFields      KEYWORD2
+setSendCallback KEYWORD2
+
+# HTTP
+get             KEYWORD2
+post            KEYWORD2
+
+# Storage
+begin           KEYWORD2
+saveConfig      KEYWORD2
+loadConfig      KEYWORD2
+clearConfig     KEYWORD2
