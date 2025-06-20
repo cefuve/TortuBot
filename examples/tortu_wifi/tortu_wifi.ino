@@ -4,11 +4,21 @@
 TortuBot tortu;
 TortuBotWiFi wifi;
 
+void wifiEvent(String respuesta){
+  if(respuesta == "connected"){
+    Serial.print("WiFi conectado, IP: ");
+    Serial.println(wifi.getIP());
+  }
+  if(respuesta == "failed"){
+    Serial.println("WiFi desconectado...");
+  }
+}
+
 void setup() {
     Serial.begin(115200);
     tortu.begin();
 
-    bool conectado = wifi.connect("TU_SSID", "TU_PASS", 5);
+    bool conectado = wifi.connect("TU_SSID", "TU_PASSWORD", 5);
 
     if (conectado) {
         Serial.print("WiFi conectado, IP: ");
@@ -16,12 +26,12 @@ void setup() {
     } else {
         Serial.println("No se pudo conectar a WiFi");
     }
+    
+    wifi.autoReconnect(true);
+    wifi.setInterval(2000);
+    wifi.onEvent(wifiEvent);
 }
 
 void loop() {
-    // Verificar conexión continuamente
-    if (!wifi.isConnected()) {
-        Serial.println("WiFi desconectado");
-    }
-    delay(2000);
+    wifi.loop();
 }
