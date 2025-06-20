@@ -1,47 +1,40 @@
 # TortuBot
 
-**Librería modular para robótica educativa basada en ESP32**  
-Autor: César Fuenzalida Vergara ([cefuve.com](https://cefuve.com))
+**Librería educativa modular para robótica en ESP32**
 
----
-
-## Descripción
-
-TortuBot es una librería diseñada para facilitar la programación y el control de robots móviles basados en ESP32 en entornos educativos. Permite controlar motores, sensores, encoder, buzzer y LED, además de incluir módulos opcionales para conexión WiFi, ThingSpeak, HTTP y almacenamiento local.
-
----
-
-## Características principales
-
-- Control de motores DC (con velocidad y dirección)
-- Lectura de encoders (contadores, dirección, reset)
-- Sensores infrarrojos y expansión de entradas analógicas
-- Manejo de LED, buzzer, y salidas auxiliares
-- Módulos independientes para:
-  - WiFi (con auto-reconexión)
-  - HTTP GET/POST
-  - ThingSpeak (envío de datos automático)
-  - Almacenamiento no volátil de configuraciones
+TortuBot es una librería orientada a la robótica educativa con ESP32. Permite controlar motores DC, encoders, sensores infrarrojos, LED y buzzer, y opcionalmente conectar el robot a Internet mediante WiFi, HTTP o ThingSpeak.  
+Está pensada para ser **modular**: puedes usar solo el hardware básico o agregar los módulos de conectividad cuando los necesites.
 
 ---
 
 ## Instalación
 
-1. **Descarga** este repositorio como ZIP o clónalo con Git:
-    ```
+1. Descarga este repositorio como ZIP, o clónalo usando:
+    ```sh
     git clone https://github.com/cefuve/TortuBot.git
     ```
-2. **Copia la carpeta** `TortuBot` dentro de tu carpeta de librerías de Arduino (`~/Arduino/libraries/`).
-3. **Reinicia** el IDE de Arduino.
+2. Copia la carpeta `TortuBot` dentro de tu carpeta de librerías de Arduino (`~/Arduino/libraries/`).
+3. Reinicia el IDE de Arduino.
 
-> **Nota:** Asegúrate de tener seleccionada una placa basada en ESP32 y el core actualizado.  
-> Para proyectos con control de motores, conecta los drivers y encoders según la documentación.
+> **Nota:** Se recomienda usar el “core” oficial de ESP32 actualizado.
 
 ---
 
-## Uso básico
+## Características principales
 
-### Ejemplo: Control de hardware principal
+- Control de motores DC con velocidad y dirección
+- Lectura y reset de encoders de cuadratura
+- Lectura de sensores infrarrojos (3 canales)
+- Control de LED y buzzer
+- **Módulos opcionales independientes:**
+    - WiFi con auto-reconexión y eventos
+    - HTTP (GET/POST) con callback
+    - ThingSpeak (envío automático a la nube)
+    - Almacenamiento de variables en memoria no volátil
+
+---
+
+## Ejemplo básico
 
 ```cpp
 #include <TortuBot.h>
@@ -65,3 +58,7 @@ void loop() {
     Serial.print("Encoder1: ");
     Serial.println(tortu.readEncoder1());
 }
+```
+## Autor
+
+- [César Fuenzalida Vergara](https://www.cefuve.com/)

@@ -1,3 +1,17 @@
+/*
+  TortuBot
+
+  Copyright (c) 2025 CEAR INACAP.  All right reserved.
+  License: GPL 3.0.
+
+  This program comes with ABSOLUTELY NO WARRANTY.
+  This is free software, and you are welcome to redistribute it
+  under certain conditions.
+
+  Created 19 Jun 2025
+  Cesar Fuenzalida Vergara @cefuve
+*/
+
 #include <TortuBot.h>
 #include <TortuBotWiFi.h>
 
