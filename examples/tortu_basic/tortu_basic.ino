@@ -19,6 +19,7 @@ TortuBot tortu;
 void setup() {
     Serial.begin(115200);
     tortu.begin();
+    tortu.beep(40);
 }
 
 void loop() {
