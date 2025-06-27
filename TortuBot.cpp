@@ -11,13 +11,6 @@
 #define MOTOR2_IN1 25
 #define MOTOR2_IN2 26
 
-#define MOTOR1_IN1_CH 0
-#define MOTOR1_IN2_CH 1
-#define MOTOR2_IN1_CH 2
-#define MOTOR2_IN2_CH 3
-#define PWM_FREQ     20000  // 20 kHz es silencioso y eficiente para DRV8871
-#define PWM_RES      8      // 8 bits: 0-255
-
 #define ENCODER1_A 4
 #define ENCODER1_B 35
 #define ENCODER2_A 15
@@ -39,11 +32,6 @@ void TortuBot::begin() {
     pinMode(MOTOR1_IN2, OUTPUT);
     pinMode(MOTOR2_IN1, OUTPUT);
     pinMode(MOTOR2_IN2, OUTPUT);
-
-    ledcAttach(MOTOR1_IN1, PWM_FREQ, PWM_RES);
-    ledcAttach(MOTOR1_IN2, PWM_FREQ, PWM_RES);
-    ledcAttach(MOTOR2_IN1, PWM_FREQ, PWM_RES);
-    ledcAttach(MOTOR2_IN2, PWM_FREQ, PWM_RES);
 
     stop();
 }
@@ -127,33 +115,33 @@ void TortuBot::stop() {
 void TortuBot::setM1(int speed, bool forward) {
     speed = constrain(speed, 0, 255);
     if (forward) {
-        ledcWrite(MOTOR1_IN1_CH, speed);
-        ledcWrite(MOTOR1_IN2_CH, 0);
+        analogWrite(MOTOR1_IN1, speed);
+        analogWrite(MOTOR1_IN2, 0);
     } else {
-        ledcWrite(MOTOR1_IN1_CH, 0);
-        ledcWrite(MOTOR1_IN2_CH, speed);
+        analogWrite(MOTOR1_IN1, 0);
+        analogWrite(MOTOR1_IN2, speed);
     }
 }
 
 void TortuBot::setM2(int speed, bool forward) {
     speed = constrain(speed, 0, 255);
     if (forward) {
-        ledcWrite(MOTOR2_IN1_CH, speed);
-        ledcWrite(MOTOR2_IN2_CH, 0);
+        analogWrite(MOTOR2_IN1, speed);
+        analogWrite(MOTOR2_IN2, 0);
     } else {
-        ledcWrite(MOTOR2_IN1_CH, 0);
-        ledcWrite(MOTOR2_IN2_CH, speed);
+        analogWrite(MOTOR2_IN1, 0);
+        analogWrite(MOTOR2_IN2, speed);
     }
 }
 
 void TortuBot::stopM1() {
-    ledcWrite(MOTOR1_IN1_CH, 0);
-    ledcWrite(MOTOR1_IN2_CH, 0);
+    analogWrite(MOTOR1_IN1, 0);
+    analogWrite(MOTOR1_IN2, 0);
 }
 
 void TortuBot::stopM2() {
-    ledcWrite(MOTOR2_IN1_CH, 0);
-    ledcWrite(MOTOR2_IN2_CH, 0);
+    analogWrite(MOTOR2_IN1, 0);
+    analogWrite(MOTOR2_IN2, 0);
 }
 
 void IRAM_ATTR encoder1_isr() {
